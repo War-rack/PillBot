@@ -12,7 +12,7 @@ The core idea behind PillBot is to simplify the medicine purchasing and reminder
 
 PillBot aims to improve medication adherence by integrating OCR-based medicine recognition with WhatsApp reminders. The AI-driven approach minimizes errors and enhances accessibility for elderly users managing chronic conditions.
 
-## 🛠️ System Architecture
+## 🏗️ System Architecture
 
 ### 🔧 Model Components
 
@@ -21,13 +21,17 @@ PillBot aims to improve medication adherence by integrating OCR-based medicine r
 3. **🌿 DrugBank API for Medicine Details**
 4. **📩 WhatsApp API for Reminders**
 
-### 📊 Model Architecture
+### 📊 Model Architecture Flowchart
 
-- **Image Input:** Medicine package or prescription image is uploaded.
-- **OCR Processing:** Text is extracted using multiple OCR models.
-- **AI Model:** Recognizes and categorizes extracted text.
-- **Database Matching:** Extracted medicine names are verified against a medical database.
-- **User Notification:** Medicine information and reminders are sent via WhatsApp.
+Below is a high-level representation of PillBot’s architecture:
+
+![PillBot Architecture](path_to_architecture_image.png) *(Replace with actual image path)*
+
+1. **Image Input:** Medicine package or prescription image is uploaded.
+2. **OCR Processing:** Text is extracted using multiple OCR models.
+3. **AI Model:** Recognizes and categorizes extracted text.
+4. **Database Matching:** Extracted medicine names are verified against a medical database.
+5. **User Notification:** Medicine information and reminders are sent via WhatsApp.
 
 ### 🌐 AI Models Used
 
@@ -79,6 +83,11 @@ pip install -r requirements.txt
 - **Endpoint:** `https://api.drugbank.com/v1/drugs/search?q=Paracetamol`
 - **Returns:** Medicine name, solution, and related information.
 
+### ✍️ AI Models
+
+- `trocr-base-handwritten`
+- `trocr-base-printed`
+
 ### ▶️ Running the Application
 
 ```bash
@@ -105,6 +114,3 @@ python app.py
 - **⏳ Celery** - Task Scheduling
 
 ---
-
-This README provides a structured overview of the PillBot project, covering its purpose, functionality, setup, and expected impact.
-
