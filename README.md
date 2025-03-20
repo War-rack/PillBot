@@ -145,7 +145,7 @@ python app.py
 
 ## 📸 Screenshots
 
-*(Include relevant images of UI and working process)*
+![image alt](https://github.com/War-rack/PillBot/blob/main/WhatsApp%20Image%202025-03-06%20at%2018.07.21_57212b6a.jpg?raw=true)
 
 ## 🛠️ Built With
 
