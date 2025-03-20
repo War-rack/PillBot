@@ -146,6 +146,7 @@ python app.py
 ## 📸 Screenshots
 
 ![image alt](https://github.com/War-rack/PillBot/blob/main/WhatsApp%20Image%202025-03-06%20at%2018.07.21_57212b6a.jpg?raw=true)
+![image alt](https://github.com/War-rack/PillBot/blob/main/WhatsApp%20Image%202025-03-06%20at%2018.09.36_33ab3594.jpg?raw=true)
 
 ## 🛠️ Built With
 
@@ -156,8 +157,7 @@ python app.py
 - **📩 Twilio WhatsApp API** - Messaging
 - **⏳ Celery** - Task Scheduling
 ## 🏗️ About the Developer
-
-PillBot was developed by Pranaya and Varun 
+"PillBot was developed through the collaboration of Pranaya and Varun."
 ---
 
 
