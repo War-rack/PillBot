@@ -23,20 +23,22 @@ PillBot aims to improve medication adherence by integrating OCR-based medicine r
 
 ### 📊 Model Architecture Flowchart
 
-Below is a high-level representation of PillBot’s architecture:
-
-![PillBot Architecture](path_to_architecture_image.png) *(Replace with actual image path)*
-
-1. **Image Input:** Medicine package or prescription image is uploaded.
-2. **OCR Processing:** Text is extracted using multiple OCR models.
-3. **AI Model:** Recognizes and categorizes extracted text.
-4. **Database Matching:** Extracted medicine names are verified against a medical database.
-5. **User Notification:** Medicine information and reminders are sent via WhatsApp.
+```mermaid
+graph TD;
+    A[User Uploads Image] -->|OCR Processing| B[Text Extraction];
+    B -->|AI Model Processing| C[Medicine Recognition];
+    C -->|Database Matching| D[Medicine Verification];
+    D -->|User Notification| E[WhatsApp Reminder System];
+```
 
 ### 🌐 AI Models Used
 
 ```python
 # Load OCR models
+import torch
+from transformers import TrOCRProcessor, VisionEncoderDecoderModel
+from paddleocr import PaddleOCR
+
 trocr_processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
 trocr_model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-base-handwritten").to(device)
 paddle_ocr = PaddleOCR(use_angle_cls=True, lang="en")
@@ -63,6 +65,41 @@ paddle_ocr = PaddleOCR(use_angle_cls=True, lang="en")
    - Extracted medicine details are stored in the system.
    - Twilio’s WhatsApp API and Celery handle scheduled reminders.
 
+## 🏗️ Model-Specific Architectures
+
+### 📜 OCR Model Architecture
+
+```mermaid
+graph TD;
+    A[Raw Prescription Image] -->|Preprocessing| B[OCR Engine];
+    B -->|Text Extraction| C[Medicine Name Identification];
+    C -->|Validation| D[Database Matching];
+```
+
+### 📩 Reminder System Architecture
+
+```mermaid
+graph TD;
+    A[Extracted Medicine Info] -->|Store in Database| B[Schedule Reminder];
+    B -->|Send Notification| C[Twilio WhatsApp API];
+    C -->|User Receives Alert| D[Reminder Completion];
+```
+
+## 🗂️ Dataset Details
+
+- **🖼️ Image Data:** Medicine package and prescription images.
+- **🍿 Custom Data:** Labeled images for training AI models.
+- **📊 Augmented Data:** Variants of images for model robustness.
+- **🔢 Data Labels:** Medicine names, dosage, and expiry information.
+
+## 📜 File Details
+
+- **`main.py`** - Core execution script.
+- **`model.py`** - AI model and OCR processing logic.
+- **`database.db`** - SQLite/PostgreSQL database for storing medicine details.
+- **`requirements.txt`** - List of dependencies.
+- **`README.md`** - Documentation and project overview.
+
 ## 🛠️ Installation & Dependencies
 
 ### ✅ Prerequisites
@@ -70,10 +107,25 @@ paddle_ocr = PaddleOCR(use_angle_cls=True, lang="en")
 - Python 3.8+
 - Virtual Environment (optional but recommended)
 
-### 🏦 Install Dependencies
+### 📦 Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+!sudo apt install tesseract-ocr
+!pip install pytesseract opencv-python numpy easyocr fuzzywuzzy python-Levenshtein nltk
+!pip install pytesseract opencv-python pandas fuzzywuzzy spacy transformers
+!pip install pytesseract opencv-python numpy easyocr fuzzywuzzy python-Levenshtein nltk
+```
+## Import necessary libraries
+```bash
+import cv2
+import pytesseract
+import numpy as np
+import easyocr
+import re
+import nltk
+from nltk.corpus import words
+from PIL import Image
+import matplotlib.pyplot as plt
 ```
 
 ## 🔗 API Configuration
@@ -83,22 +135,13 @@ pip install -r requirements.txt
 - **Endpoint:** `https://api.drugbank.com/v1/drugs/search?q=Paracetamol`
 - **Returns:** Medicine name, solution, and related information.
 
-### ✍️ AI Models
 
-- `trocr-base-handwritten`
-- `trocr-base-printed`
 
 ### ▶️ Running the Application
 
 ```bash
 python app.py
 ```
-
-## 📚 Dataset & Features
-
-- **🖼️ Image Data:** Medicine package and prescription images.
-- **🍿 Custom Data:** Labeled images for training AI models.
-- **📊 Augmented Data:** Variants of images for model robustness.
 
 ## 📸 Screenshots
 
@@ -112,5 +155,10 @@ python app.py
 - **🖼️ OpenCV** - Image Processing
 - **📩 Twilio WhatsApp API** - Messaging
 - **⏳ Celery** - Task Scheduling
+## 🏗️ About the Developer
 
+PillBot was developed by Pranaya and Varun 
 ---
+
+
+
