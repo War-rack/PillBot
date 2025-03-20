@@ -1,0 +1,121 @@
+.App {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, rgb(255, 253, 125), rgb(151, 250, 184), rgb(253, 209, 158));
+}
+
+/* Centered Reminder Box */
+.homepage_header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.homepage_header h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Adjust emoji next to title */
+.homepage_header h1 span {
+    margin-left: 5px;
+}
+
+/* Input Fields */
+.homepage_header input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* DateTime Picker */
+.react-datetime-picker {
+    width: 100% !important;
+}
+
+.react-datetime-picker__wrapper {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    background: white;
+    width: 100%;
+}
+
+/* Button */
+.homepage_header .button {
+    width: 100%;
+    background: #1877f2;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.homepage_header .button:hover {
+    background: #125abe;
+}
+.reminder_card {
+    display: flex;
+    flex-direction: column;
+    display: inline-block;
+    background: white;
+    border-radius: 8px;
+    margin: 2rem;
+    padding: 1rem;
+    max-width:350px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+.reminder_card > h2 {
+    margin-bottom: 1rem;
+    color: #1877f2;
+}
+
+.reminder_card > p {
+    color: grey;
+    margin-bottom: 1rem;
+}
+
+.reminder_card > .button {
+    background: #1877f2;
+    border: 1px solid #1877f2;
+    color: #fff;
+    font-size: 1.25rem;
+    width: inherit;
+    text-align:center;
+    padding: 0.5rem 0;
+    margin: 0.5rem ;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
